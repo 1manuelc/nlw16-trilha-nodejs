@@ -1,5 +1,7 @@
 import fastify from 'fastify';
+import cors from '@fastify/cors';
 import { createTrip } from './routes/create-trip';
+import { confirmTrip } from './routes/confirm-trip';
 import {
 	serializerCompiler,
 	validatorCompiler,
@@ -10,7 +12,12 @@ const app = fastify();
 app.setValidatorCompiler(validatorCompiler);
 app.setSerializerCompiler(serializerCompiler);
 
+app.register(cors, {
+	origin: '*',
+});
+
 app.register(createTrip);
+app.register(confirmTrip);
 
 app.get('/teste', () => {
 	return 'Hello NLW';
