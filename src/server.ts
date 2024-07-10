@@ -6,6 +6,7 @@ import {
 	serializerCompiler,
 	validatorCompiler,
 } from 'fastify-type-provider-zod';
+import { confirmParticipant } from './routes/confirm-participant';
 
 const app = fastify();
 
@@ -18,6 +19,7 @@ app.register(cors, {
 
 app.register(createTrip);
 app.register(confirmTrip);
+app.register(confirmParticipant);
 
 app.get('/hello', () => {
 	return 'Hello NLW';
