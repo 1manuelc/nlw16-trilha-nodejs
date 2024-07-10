@@ -15,10 +15,10 @@ export async function confirmTrip(app: FastifyInstance) {
 			},
 		},
 		async (request, reply) => {
-			const tripdId = request.params.tripId;
+			const { tripId } = request.params;
 
 			const trip = await prisma.trip.findUnique({
-				where: { id: tripdId },
+				where: { id: tripId },
 				include: {
 					participants: { where: { is_owner: false } },
 				},
@@ -29,11 +29,11 @@ export async function confirmTrip(app: FastifyInstance) {
 			}
 
 			if (trip.is_confirmed) {
-				return reply.redirect(`http://localhost:3000/trips/${tripdId}`);
+				return reply.redirect(`http://localhost:3000/trips/${tripId}`);
 			}
 
 			await prisma.trip.update({
-				where: { id: tripdId },
+				where: { id: tripId },
 				data: { is_confirmed: true },
 			});
 
@@ -72,7 +72,7 @@ export async function confirmTrip(app: FastifyInstance) {
 				})
 			);
 
-			return reply.redirect(`http://localhost:3000/trips/${tripdId}`);
+			return reply.redirect(`http://localhost:3000/trips/${tripId}`);
 		}
 	);
 }
