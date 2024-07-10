@@ -19,7 +19,7 @@ app.register(cors, {
 app.register(createTrip);
 app.register(confirmTrip);
 
-app.get('/teste', () => {
+app.get('/hello', () => {
 	return 'Hello NLW';
 });
 
