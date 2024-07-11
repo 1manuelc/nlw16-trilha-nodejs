@@ -17,6 +17,7 @@ import { updateTrip } from './routes/update-trip';
 import { getTripDetails } from './routes/get-trip-details';
 import { getParticipant } from './routes/get-participant';
 import { errorHandler } from './error-handler';
+import { env } from './env';
 
 const app = fastify();
 
@@ -46,6 +47,6 @@ app.get('/hello', () => {
 	return 'Hello NLW';
 });
 
-app.listen({ port: 3333 }).then(() => {
-	console.log('Server running on localhost:3333');
+app.listen({ port: env.PORT }).then(() => {
+	console.log(`Server running!`);
 });
