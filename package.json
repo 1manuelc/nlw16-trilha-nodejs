@@ -1,7 +1,7 @@
 {
-  "name": "backend",
+  "name": "nlw16-trilha-nodejs",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "./src/server.ts",
   "scripts": {
     "dev": "tsx watch --env-file .env src/server.ts"
   },
