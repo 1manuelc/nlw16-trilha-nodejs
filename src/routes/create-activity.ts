@@ -42,7 +42,7 @@ export async function createActivity(app: FastifyInstance) {
 			const activity = await prisma.activity.create({
 				data: {
 					title: title,
-					occours_at: occurs_at,
+					occurs_at: occurs_at,
 					trip_id: tripId,
 				},
 			});

@@ -20,7 +20,7 @@ export async function getActivities(app: FastifyInstance) {
 
 			const trip = await prisma.trip.findUnique({
 				where: { id: tripId },
-				include: { activities: { orderBy: { occours_at: 'asc' } } },
+				include: { activities: { orderBy: { occurs_at: 'asc' } } },
 			});
 
 			if (!trip) {
@@ -39,7 +39,7 @@ export async function getActivities(app: FastifyInstance) {
 				return {
 					date: date.toDate(),
 					activities: trip.activities.filter((activity) => {
-						return dayjs(activity.occours_at).isSame(date, 'day');
+						return dayjs(activity.occurs_at).isSame(date, 'day');
 					}),
 				};
 			});
