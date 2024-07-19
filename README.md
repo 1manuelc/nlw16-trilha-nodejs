@@ -23,7 +23,7 @@ A API foi feita com `Node.js` e construído utilizando `Typescript + Fastify`, u
 * `tsx`: para executar arquivos `.ts`.
 
 ## Roteamento
-Você pode importar o arquivo `routes.json` de **formato Insomnia V4** para sua ferramenta de testes de API's.
+Você pode importar o arquivo [`routes.json`](https://github.com/1manuelc/nlw16-trilha-nodejs/blob/main/routes.json) de **formato Insomnia V4** para sua ferramenta de testes de API's.
 
 ## Executando localmente
 Para executar a API, você precisa:
